@@ -1,5 +1,5 @@
 import { highlightExample } from "./highlight.js";
-import { createLayoutPredictor, JUSTIFY } from "/packages/core/src/index.js";
+import { createLayoutPredictor, JUSTIFY } from "./packages/core/src/index.js";
 
 const $ = (id) => document.getElementById(id);
 const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
@@ -589,7 +589,7 @@ $("reset").addEventListener("click", () => {
 /* ---------- boot ---------- */
 update();
 try {
-  const response = await fetch("/model-report.json");
+  const response = await fetch(new URL("./model-report.json", import.meta.url));
   if (!response.ok) throw new Error("Missing model report");
   report = await response.json();
   infer = await createLayoutPredictor();

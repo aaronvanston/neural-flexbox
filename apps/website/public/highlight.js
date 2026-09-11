@@ -15,7 +15,7 @@ export function highlightExample(element, code) {
   status.textContent = "Highlighting…";
   timer = setTimeout(async () => {
     try {
-      const { parse } = await (parsePromise ??= import("/vendor/gpu-lexer.js"));
+      const { parse } = await (parsePromise ??= import("./vendor/gpu-lexer.js"));
       const spans = await parse(code);
       if (current !== revision) return;
       const fragment = document.createDocumentFragment();

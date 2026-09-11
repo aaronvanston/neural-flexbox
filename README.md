@@ -1,5 +1,7 @@
 # neural-flexbox
 
+[Try the playground](https://aaronvanston.github.io/neural-flexbox/)
+
 [![Watch the 55-second explainer: CSS inputs, the network, and predicted boxes](docs/flex-explainer.jpg)](https://github.com/aaronvanston/neural-flexbox/raw/refs/heads/main/docs/flex-explainer.mp4)
 
 [Watch / download the explainer](https://github.com/aaronvanston/neural-flexbox/raw/refs/heads/main/docs/flex-explainer.mp4): from CSS layout rules to 23 input features, through the shared network, and back to predicted positions and widths.
@@ -90,7 +92,7 @@ npm run build
 
 There are no automatic GitHub Actions workflows. Run these checks locally when needed.
 
-`verify` checks decoded browser predictions against 100 PyTorch fixtures and exercises controls/mobile layout. The full accepted evaluation is recorded under `packages/training/active`; fresh full evaluation can be generated using the training tools. `build` writes a standalone static site to `dist/`. The included server honors Brotli/gzip sidecars. A different static host must configure the appropriate `Content-Encoding` headers to get the compressed size; serving the raw 39,840-byte model still works. No deployment is performed.
+`verify` checks decoded browser predictions against 100 PyTorch fixtures and exercises controls/mobile layout. The full accepted evaluation is recorded under `packages/training/active`; fresh full evaluation can be generated using the training tools. `build` writes a standalone static site to `dist/`. The included server honors Brotli/gzip sidecars. A different static host must configure the appropriate `Content-Encoding` headers to get the compressed size; serving the raw 39,840-byte model still works. The build itself does not deploy. The public demo is served by GitHub Pages from the built files on the `gh-pages` branch. GitHub Pages serves the raw 39,840-byte model; the 33 KiB figure describes its Brotli-compressed size, not the transfer size guaranteed by this host.
 
 ## Training
 
