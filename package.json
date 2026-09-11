@@ -1,0 +1,34 @@
+{
+  "name": "neural-flexbox",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/core",
+    "packages/training",
+    "packages/benchmark",
+    "apps/website"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "node apps/website/server.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test packages/core/test/*.test.mjs",
+    "verify": "node packages/benchmark/verify.mjs",
+    "benchmark": "node packages/benchmark/size.mjs",
+    "data": "node packages/training/src/generate.mjs",
+    "data:extra": "node packages/training/src/generate.mjs --extra",
+    "data:balanced": "node packages/training/src/generate-balanced.mjs",
+    "train": "python3 packages/training/src/train.py",
+    "predev": "node scripts/website-assets.mjs",
+    "postinstall": "node scripts/website-assets.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.61.1"
+  },
+  "dependencies": {
+    "gpu-lexer": "0.0.2"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,23 @@
+{
+  "seed": 20260911,
+  "teacher": "Chromium 149.0.7827.55",
+  "features": 1,
+  "splits": {
+    "train": {
+      "layouts": 24000,
+      "sha256": "049455fb950bb2704728526c7f5a788971f90f443902b772a54cf13b72a45b4b"
+    },
+    "validation": {
+      "layouts": 2000,
+      "sha256": "fb289535f369f6c4ea3dfa96c79fa4c980aa5f4ebd7ccfc27b550fe6dc1e9943"
+    },
+    "test": {
+      "layouts": 2000,
+      "sha256": "14dc86eac0cacef57a9614adda138654dd476faccd94b13b13b4e3b98d4475d2"
+    },
+    "ood": {
+      "layouts": 1000,
+      "sha256": "8f3a3a25065ab366c2e6c2177db96b0298093ea5a6779670d3a80cb83f49654e"
+    }
+  }
+}

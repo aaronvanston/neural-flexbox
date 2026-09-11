@@ -1,0 +1,317 @@
+{
+  "formatVersion": 1,
+  "featureVersion": 4,
+  "architecture": [
+    23,
+    128,
+    128,
+    128,
+    2
+  ],
+  "targetMaePx": 0.5,
+  "parameters": 36354,
+  "seed": 20260911,
+  "selectedEpoch": 754,
+  "epochs": 800,
+  "trainingSeconds": 177.53257608413696,
+  "torchVersion": "2.7.1+cu128",
+  "trainingDevice": "cuda",
+  "manifest": {
+    "seed": 20260911,
+    "teacher": "Chromium 149.0.7827.55",
+    "features": 1,
+    "splits": {
+      "train": {
+        "layouts": 24000,
+        "sha256": "049455fb950bb2704728526c7f5a788971f90f443902b772a54cf13b72a45b4b"
+      },
+      "validation": {
+        "layouts": 2000,
+        "sha256": "fb289535f369f6c4ea3dfa96c79fa4c980aa5f4ebd7ccfc27b550fe6dc1e9943"
+      },
+      "test": {
+        "layouts": 2000,
+        "sha256": "14dc86eac0cacef57a9614adda138654dd476faccd94b13b13b4e3b98d4475d2"
+      },
+      "ood": {
+        "layouts": 1000,
+        "sha256": "8f3a3a25065ab366c2e6c2177db96b0298093ea5a6779670d3a80cb83f49654e"
+      },
+      "test-balanced-natural": {
+        "layouts": 5000,
+        "sha256": "232c921ef09fccac51d6744330e8f9c2f76196b5e53649dc880e368b919bc44c"
+      }
+    },
+    "freshTest": {
+      "seed": 20261003,
+      "teacher": "Chromium 149.0.7827.55",
+      "balanced": false,
+      "splits": {
+        "test-balanced-natural": {
+          "layouts": 5000,
+          "sha256": "232c921ef09fccac51d6744330e8f9c2f76196b5e53649dc880e368b919bc44c"
+        }
+      }
+    }
+  },
+  "metrics": {
+    "validation": {
+      "boxes": 8878,
+      "maePx": 0.3370252847671509,
+      "p95Px": 1.0565838813781738,
+      "maxPx": 38.56380844116211,
+      "xMaePx": 0.39863643050193787,
+      "widthMaePx": 0.27541401982307434,
+      "coordinatesUnder1Px": 0.9437936544418335,
+      "boxesUnder1Px": 0.895246684551239,
+      "byJustify": {
+        "center": {
+          "boxes": 1471,
+          "maePx": 0.3322230875492096,
+          "p95Px": 1.0481479167938232,
+          "maxPx": 4.341964244842529,
+          "xMaePx": 0.3768485188484192,
+          "widthMaePx": 0.28759774565696716,
+          "coordinatesUnder1Px": 0.9442555904388428,
+          "boxesUnder1Px": 0.8939496874809265
+        },
+        "flex-end": {
+          "boxes": 1399,
+          "maePx": 0.34778738021850586,
+          "p95Px": 1.13127601146698,
+          "maxPx": 9.439408302307129,
+          "xMaePx": 0.4025935232639313,
+          "widthMaePx": 0.29298117756843567,
+          "coordinatesUnder1Px": 0.9381701350212097,
+          "boxesUnder1Px": 0.8877769708633423
+        },
+        "flex-start": {
+          "boxes": 1512,
+          "maePx": 0.3195936679840088,
+          "p95Px": 0.9908657073974609,
+          "maxPx": 7.677218914031982,
+          "xMaePx": 0.3654227554798126,
+          "widthMaePx": 0.27376455068588257,
+          "coordinatesUnder1Px": 0.9507275223731995,
+          "boxesUnder1Px": 0.908730149269104
+        },
+        "space-around": {
+          "boxes": 1534,
+          "maePx": 0.3287489712238312,
+          "p95Px": 1.0173436403274536,
+          "maxPx": 9.705863952636719,
+          "xMaePx": 0.40938401222229004,
+          "widthMaePx": 0.24811388552188873,
+          "coordinatesUnder1Px": 0.9488266110420227,
+          "boxesUnder1Px": 0.9022164344787598
+        },
+        "space-between": {
+          "boxes": 1354,
+          "maePx": 0.31506338715553284,
+          "p95Px": 0.9255450367927551,
+          "maxPx": 14.460875511169434,
+          "xMaePx": 0.3561176061630249,
+          "widthMaePx": 0.27400919795036316,
+          "coordinatesUnder1Px": 0.95716392993927,
+          "boxesUnder1Px": 0.9217134714126587
+        },
+        "space-evenly": {
+          "boxes": 1608,
+          "maePx": 0.3748339116573334,
+          "p95Px": 1.1999027729034424,
+          "maxPx": 38.56380844116211,
+          "xMaePx": 0.4719056189060211,
+          "widthMaePx": 0.27776211500167847,
+          "coordinatesUnder1Px": 0.9256840944290161,
+          "boxesUnder1Px": 0.8613184094429016
+        }
+      }
+    },
+    "test-balanced-natural": {
+      "boxes": 22480,
+      "maePx": 0.3503970503807068,
+      "p95Px": 1.0836013555526733,
+      "maxPx": 13.962357521057129,
+      "xMaePx": 0.41224125027656555,
+      "widthMaePx": 0.28855282068252563,
+      "coordinatesUnder1Px": 0.9403247237205505,
+      "boxesUnder1Px": 0.8896797299385071,
+      "byJustify": {
+        "center": {
+          "boxes": 3758,
+          "maePx": 0.3572724163532257,
+          "p95Px": 1.0668683052062988,
+          "maxPx": 8.197871208190918,
+          "xMaePx": 0.40436065196990967,
+          "widthMaePx": 0.31018418073654175,
+          "coordinatesUnder1Px": 0.9401277303695679,
+          "boxesUnder1Px": 0.8895689249038696
+        },
+        "flex-end": {
+          "boxes": 3996,
+          "maePx": 0.3527633547782898,
+          "p95Px": 1.0702086687088013,
+          "maxPx": 11.099440574645996,
+          "xMaePx": 0.4105752408504486,
+          "widthMaePx": 0.2949514389038086,
+          "coordinatesUnder1Px": 0.9416916966438293,
+          "boxesUnder1Px": 0.8928928971290588
+        },
+        "flex-start": {
+          "boxes": 3870,
+          "maePx": 0.33624163269996643,
+          "p95Px": 1.0130053758621216,
+          "maxPx": 13.962357521057129,
+          "xMaePx": 0.38810840249061584,
+          "widthMaePx": 0.28437477350234985,
+          "coordinatesUnder1Px": 0.9478036165237427,
+          "boxesUnder1Px": 0.9038759469985962
+        },
+        "space-around": {
+          "boxes": 3687,
+          "maePx": 0.34897691011428833,
+          "p95Px": 1.0986920595169067,
+          "maxPx": 13.025726318359375,
+          "xMaePx": 0.4181404709815979,
+          "widthMaePx": 0.279813289642334,
+          "coordinatesUnder1Px": 0.9376186728477478,
+          "boxesUnder1Px": 0.8844588994979858
+        },
+        "space-between": {
+          "boxes": 3547,
+          "maePx": 0.3282182514667511,
+          "p95Px": 1.0162709951400757,
+          "maxPx": 5.898464202880859,
+          "xMaePx": 0.38429179787635803,
+          "widthMaePx": 0.27214473485946655,
+          "coordinatesUnder1Px": 0.9479842185974121,
+          "boxesUnder1Px": 0.903298556804657
+        },
+        "space-evenly": {
+          "boxes": 3622,
+          "maePx": 0.3789427876472473,
+          "p95Px": 1.230389952659607,
+          "maxPx": 10.991096496582031,
+          "xMaePx": 0.46940672397613525,
+          "widthMaePx": 0.2884788513183594,
+          "coordinatesUnder1Px": 0.9262838363647461,
+          "boxesUnder1Px": 0.8630591034889221
+        }
+      }
+    },
+    "ood": {
+      "boxes": 4537,
+      "maePx": 0.945991575717926,
+      "p95Px": 3.5149993896484375,
+      "maxPx": 76.67259216308594,
+      "xMaePx": 1.16825532913208,
+      "widthMaePx": 0.7237279415130615,
+      "coordinatesUnder1Px": 0.7445448637008667,
+      "boxesUnder1Px": 0.5796781778335571,
+      "byJustify": {
+        "center": {
+          "boxes": 829,
+          "maePx": 0.896743655204773,
+          "p95Px": 3.2512426376342773,
+          "maxPx": 14.396584510803223,
+          "xMaePx": 1.0822683572769165,
+          "widthMaePx": 0.7112188935279846,
+          "coordinatesUnder1Px": 0.7285886406898499,
+          "boxesUnder1Px": 0.5476477742195129
+        },
+        "flex-end": {
+          "boxes": 771,
+          "maePx": 0.8882300853729248,
+          "p95Px": 3.5450735092163086,
+          "maxPx": 30.766658782958984,
+          "xMaePx": 1.0548897981643677,
+          "widthMaePx": 0.7215703129768372,
+          "coordinatesUnder1Px": 0.7477301955223083,
+          "boxesUnder1Px": 0.5927367210388184
+        },
+        "flex-start": {
+          "boxes": 772,
+          "maePx": 0.9294898509979248,
+          "p95Px": 3.3039767742156982,
+          "maxPx": 76.67259216308594,
+          "xMaePx": 1.141929030418396,
+          "widthMaePx": 0.7170507907867432,
+          "coordinatesUnder1Px": 0.7506476640701294,
+          "boxesUnder1Px": 0.590673565864563
+        },
+        "space-around": {
+          "boxes": 730,
+          "maePx": 0.9579464197158813,
+          "p95Px": 3.333681583404541,
+          "maxPx": 40.066646575927734,
+          "xMaePx": 1.21162748336792,
+          "widthMaePx": 0.7042654156684875,
+          "coordinatesUnder1Px": 0.7554794549942017,
+          "boxesUnder1Px": 0.5917808413505554
+        },
+        "space-between": {
+          "boxes": 727,
+          "maePx": 1.0294413566589355,
+          "p95Px": 4.060947895050049,
+          "maxPx": 37.63064956665039,
+          "xMaePx": 1.2906376123428345,
+          "widthMaePx": 0.7682452201843262,
+          "coordinatesUnder1Px": 0.7379642128944397,
+          "boxesUnder1Px": 0.566712498664856
+        },
+        "space-evenly": {
+          "boxes": 708,
+          "maePx": 0.9865351915359497,
+          "p95Px": 3.7049899101257324,
+          "maxPx": 29.07642364501953,
+          "xMaePx": 1.250709891319275,
+          "widthMaePx": 0.7223604917526245,
+          "coordinatesUnder1Px": 0.7485875487327576,
+          "boxesUnder1Px": 0.5918079018592834
+        }
+      }
+    }
+  },
+  "weightsSha256": "815ed24dbc65490d4b03060db2b194889ffb9988f92153f138dd24ba5b8aaa26",
+  "trainingLayouts": 152000,
+  "additionalTrainingData": {
+    "seed": 20260913,
+    "teacher": "Chromium 149.0.7827.55",
+    "features": 1,
+    "splits": {
+      "train-extra": {
+        "layouts": 96000,
+        "sha256": "b352b5f2ce7324e1ca595f34379c35a1b4f8aa1a5bbb094d55ef21e03d7a3368"
+      }
+    }
+  },
+  "balancedTrainingData": {
+    "seed": 20261001,
+    "teacher": "Chromium 149.0.7827.55",
+    "balanced": true,
+    "splits": {
+      "train-balanced": {
+        "layouts": 32000,
+        "sha256": "35bfd168472e6a620fe8d9f1b2c2d88606dff2afecdba0118dac4658c143371b"
+      }
+    }
+  },
+  "runtime": {
+    "file": "weights-cf4acc1ceb2d3df3.bin",
+    "format": "NFLX-v2",
+    "sha256": "cf4acc1ceb2d3df3351f00e203918c48cd4d162ec0c774f62549d3f5f6ab1075",
+    "bytes": 39840,
+    "brotliBytes": 33801,
+    "gzipBytes": 35150
+  },
+  "quantization": {
+    "bits": 8,
+    "scheme": "symmetric-per-output-channel",
+    "bias": "float32",
+    "scales": "learned-float32",
+    "outputWeights": "float32",
+    "format": "NFLX-v2",
+    "weightBytes": 39840
+  },
+  "preprocessing": "Canonicalizes irrelevant shrink, grow and justification inputs; coordinates remain learned predictions."
+}

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="A simple 33 KiB model that approximates CSS flexbox."
+    />
+    <meta name="theme-color" content="#f7f6ef" />
+    <title>neural-flexbox</title>
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/playground.css" />
+    <link rel="stylesheet" href="/site.css" />
+  </head>
+  <body>
+    <main class="pg">
+      <div class="hero">
+        <h1><code>neural-flexbox</code></h1>
+        <p class="lede">Flexbox, approximately.</p>
+        <p class="pitch">
+          Stop using a 10-trillion-parameter model to centre your divs.<br />Use
+          a 36,354-parameter model instead.
+        </p>
+      </div>
+      <section
+        id="playground"
+        class="bench"
+        aria-label="Flex container playground"
+      >
+        <div class="frame-scroll">
+          <div id="frame" class="frame" style="--w: 760px">
+            <div class="bar">
+              <div class="tools">
+                <label class="chip sel"
+                  ><span class="cls">justify</span
+                  ><select id="justify" aria-label="Justify content"></select
+                  ><span class="caret" aria-hidden="true">▾</span></label
+                >
+              </div>
+            </div>
+            <div id="stage" class="stage">
+              <div class="surface">
+                <div id="masks" aria-hidden="true"></div>
+                <div id="predictions" aria-label="Neural network layout"></div>
+                <div id="reference" aria-label="Browser flexbox layout"></div>
+                <div id="gutters"></div>
+              </div>
+              <button id="add" class="add" type="button" aria-label="Add a box">
+                +
+              </button>
+              <div id="tip" class="tip" hidden></div>
+            </div>
+            <div id="labels" class="labels" aria-label="Per-box error"></div>
+            <div id="drawer" class="drawer" hidden></div>
+            <div class="readout">
+              <span class="legend"
+                ><span class="swatch"></span>model<span
+                  class="swatch off"
+                ></span
+                >off by<span class="outline"></span>browser</span
+              ><span id="error"></span><span id="timing"></span
+              ><button id="reset" type="button" class="reset">Reset</button>
+            </div>
+            <div id="status" class="range-status" aria-live="polite">
+              Loading trained model…
+            </div>
+            <div
+              id="handleL"
+              class="handle left"
+              role="slider"
+              tabindex="0"
+              aria-label="Container width"
+              aria-valuemin="240"
+              aria-valuemax="1800"
+              aria-valuenow="760"
+            >
+              <span></span>
+            </div>
+            <div
+              id="handleR"
+              class="handle right"
+              role="slider"
+              tabindex="0"
+              aria-label="Container width"
+              aria-valuemin="240"
+              aria-valuemax="1800"
+              aria-valuenow="760"
+            >
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about">
+        <p>
+          Inspired by the very useful
+          <a href="https://github.com/vercel-labs/gpu-lexer">GPU Lexer</a>,
+          which uses a small model for fast syntax highlighting. neural-flexbox
+          tries something similar in a considerably less useful way: teaching a
+          neural network to guess where CSS would put a box.
+        </p>
+        <p>
+          Drag the edges to resize. Select a box to change its rules. Each box
+          shows its largest edge error: how far its left or right edge is from
+          the browser’s. Position and width both matter.
+        </p>
+        <p>
+          Your browser already knows the right answer: CSS computes these
+          positions and widths directly. The dashed outlines show the browser’s
+          boxes; green shows the model’s prediction, and orange shows the
+          difference. This experiment asks how closely 33 KiB of learned weights
+          can approximate that calculation.
+        </p>
+        <pre
+          class="example"
+          tabindex="0"
+          aria-label="JavaScript example matching the playground"
+        ><code id="example"></code></pre>
+        <p class="highlight-credit">
+          Syntax highlighting by
+          <a href="https://github.com/vercel-labs/gpu-lexer">GPU Lexer</a>.
+          <span id="highlight-status" hidden>Loading highlighting…</span>
+        </p>
+        <details>
+          <summary>Model and training</summary>
+          <p>
+            The training harness generates layouts, asks Chromium to measure
+            each box, and uses those positions and widths as targets. A small
+            neural network learns from the container width, gap, alignment, and
+            each box’s basis, grow, and shrink rules. The hidden weights are
+            then quantized to 8 bits to keep the download small.
+          </p>
+          <p>
+            Trained on 152,000 Chromium layouts. The accepted model averages
+            0.350 px position/width error on 5,000 held-out layouts. Individual
+            misses can be larger. One row, up to eight boxes, no wrapping or
+            text measurement.
+          </p>
+          <p id="metrics">Loading model measurements…</p>
+        </details>
+        <p class="links">
+          <a href="https://github.com/aaronvanston/neural-flexbox">Source</a
+          ><a
+            href="https://github.com/aaronvanston/neural-flexbox/tree/main/packages/training"
+            >Training</a
+          ><a
+            href="https://github.com/aaronvanston/neural-flexbox/tree/main/packages/core/model"
+            >Models</a
+          ><span class="credit"
+            >by
+            <a href="https://www.linkedin.com/in/aaronvanston/"
+              >Aaron Vanston</a
+            >
+            · <a href="https://github.com/aaronvanston">GitHub</a> ·
+            <a href="https://www.linkedin.com/in/aaronvanston/"
+              >LinkedIn</a
+            ></span
+          >
+        </p>
+      </section>
+    </main>
+    <script type="module" src="/playground.js"></script>
+  </body>
+</html>

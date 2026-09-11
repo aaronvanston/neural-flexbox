@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.venv*/
+__pycache__/
+*.pyc
+/data
+packages/training/runs/
+artifacts/
+.env*
+!.env.example
+.DS_Store
+
+/apps/website/public/vendor/

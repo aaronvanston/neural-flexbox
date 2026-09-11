@@ -1,0 +1,341 @@
+body {
+  overflow-wrap: break-word;
+}
+.hero {
+  padding: 56px 0 24px;
+}
+.hero .lede {
+  max-width: 48ch;
+  font-size: 15px;
+  margin-top: 22px;
+}
+.hero h1 {
+  font-size: clamp(25px, 5vw, 64px);
+  overflow-wrap: normal;
+}
+.bench {
+  padding-top: 12px;
+}
+.frame-scroll {
+  overflow: visible;
+  padding: 26px 16px 18px;
+}
+.frame {
+  border-radius: 12px;
+}
+.stage {
+  isolation: isolate;
+}
+.surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(#7c6cd6 0.8px, transparent 1px) 0 0/6px 6px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -2;
+}
+.stage:hover .surface::before,
+.frame.dragging .surface::before,
+.stage:focus-within .surface::before {
+  opacity: 0.5;
+}
+#masks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+#masks > div {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: #fbfbf5;
+}
+.gut .free {
+  background: none;
+}
+.gut .gap {
+  background-color: #fbfbf5;
+}
+.box {
+  border-radius: 0;
+}
+.pred {
+  border-radius: 0;
+}
+.off {
+  border-radius: 0;
+}
+.reset {
+  border: 0;
+  background: none;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0;
+  color: var(--muted);
+  cursor: pointer;
+  font: 12px var(--sans);
+  margin-left: auto;
+}
+.about {
+  max-width: 66ch;
+  margin: 12px auto 0;
+  padding: 24px 0 40px;
+}
+.about p {
+  font: 14px/1.75 var(--sans);
+  color: #515449;
+  margin: 0 0 18px;
+}
+.about details {
+  font: 14px/1.7 var(--sans);
+  margin: 24px 0;
+  border-block: 1px solid var(--line);
+  padding: 14px 0;
+}
+.about summary {
+  cursor: pointer;
+}
+.about details p {
+  margin: 14px 0 0;
+}
+.about .links {
+  display: flex;
+  gap: 12px 22px;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+.about .credit {
+  margin-left: auto;
+}
+.meas {
+  display: flex;
+  gap: 8px 18px;
+  flex-wrap: wrap;
+}
+.meas span {
+  white-space: nowrap;
+}
+.chip.sel select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.chip.sel select option {
+  background: var(--paper);
+  color: var(--ink);
+}
+.box .grip,
+.gut {
+  touch-action: none;
+}
+.labels > span {
+  font-size: 11px;
+}
+.handle {
+  z-index: 4;
+}
+.surface {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 0;
+}
+#add {
+  right: calc(-1 * var(--pad) + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+  margin: 0;
+}
+.tools {
+  align-items: center;
+}
+.tip {
+  max-width: calc(var(--w) - 24px);
+  white-space: normal;
+}
+.readout {
+  font-size: 11px;
+}
+@media (max-width: 700px) {
+  .hero {
+    padding: 36px 0 18px;
+  }
+  .hero h1 {
+    font-size: clamp(23px, 5.8vw, 40px);
+  }
+  .hero .lede {
+    font-size: 14px;
+  }
+  .frame {
+    --pad: 32px;
+  }
+  .frame-scroll {
+    padding-inline: 12px;
+  }
+  .about {
+    padding-top: 20px;
+  }
+  .bar {
+    padding-inline: 12px;
+  }
+  .readout .legend {
+    flex-basis: 100%;
+  }
+  .labels > span {
+    font-size: 10px;
+  }
+}
+
+.box .rm {
+  top: 8px;
+  right: 8px;
+}
+.gut .ins {
+  bottom: 8px;
+}
+.gut .gap {
+  opacity: 1;
+  background: repeating-linear-gradient(-45deg, #bbb4d8 0 2px, #fbfbf5 2px 7px);
+}
+#masks > div {
+  border-radius: 0;
+}
+
+/* Keep drawing controls below the toolbar and independent of gap hit targets. */
+.bar {
+  justify-content: flex-end;
+  z-index: 8;
+}
+.tip {
+  top: 6px;
+  transform: translateX(-50%);
+  max-width: 100%;
+}
+.tip::after {
+  display: none;
+}
+#gutters,
+.gut .gap,
+.gut .ins,
+.box .rm {
+  transition: none;
+}
+.box .rm {
+  top: 24px;
+  right: 6px;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 5;
+}
+.box:hover .rm,
+.box:focus-within .rm,
+.box[aria-pressed="true"] .rm {
+  visibility: visible;
+  pointer-events: auto;
+}
+.box .rm:disabled {
+  display: none;
+}
+.box:has(.rm:hover) {
+  z-index: 3;
+}
+.labels {
+  overflow: hidden;
+}
+
+.example {
+  margin: 24px 0;
+  padding: 20px;
+  background: #efefe4;
+  border: 1px solid var(--line);
+  max-width: 100%;
+  overflow: auto;
+  white-space: pre;
+  font: 12px/1.7 var(--mono);
+  tab-size: 2;
+}
+.example code {
+  font: inherit;
+}
+
+.about .highlight-credit {
+  font-size: 12px;
+  margin-top: -12px;
+  color: var(--muted);
+}
+.syntax-comment {
+  color: #626357;
+}
+.syntax-keyword {
+  color: #70429c;
+}
+.syntax-string {
+  color: #41601a;
+}
+.syntax-number,
+.syntax-constant {
+  color: #985022;
+}
+.syntax-function {
+  color: #245d80;
+}
+.syntax-type {
+  color: #765021;
+}
+.syntax-operator {
+  color: #70429c;
+}
+
+/* Keep the original box outlines and hover grips. */
+.bar {
+  justify-content: center;
+}
+.box .rm {
+  top: auto;
+  bottom: 5px;
+  right: 50%;
+  transform: translateX(50%);
+  width: 28px;
+  height: 28px;
+  font-size: 18px;
+}
+.gut .ins {
+  top: 8px;
+  bottom: auto;
+}
+.range-status {
+  margin: 6px var(--pad) 0;
+  height: 3em;
+  font: 11px/1.5 var(--mono);
+  color: var(--muted);
+}
+@media (pointer: coarse) {
+  .stage .surface::before {
+    opacity: 0.5;
+  }
+  #gutters {
+    opacity: 1;
+  }
+  .box .rm {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+.hero h1 code {
+  background: none;
+}
+.hero .pitch {
+  font: 14px/1.65 var(--sans);
+  color: var(--muted);
+  margin: 16px auto 0;
+  max-width: 60ch;
+}

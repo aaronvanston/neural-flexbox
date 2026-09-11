@@ -1,0 +1,11 @@
+{
+  "seed": 20261003,
+  "teacher": "Chromium 149.0.7827.55",
+  "balanced": false,
+  "splits": {
+    "test-balanced-natural": {
+      "layouts": 5000,
+      "sha256": "232c921ef09fccac51d6744330e8f9c2f76196b5e53649dc880e368b919bc44c"
+    }
+  }
+}

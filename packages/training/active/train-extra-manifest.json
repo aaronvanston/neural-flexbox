@@ -1,0 +1,11 @@
+{
+  "seed": 20260913,
+  "teacher": "Chromium 149.0.7827.55",
+  "features": 1,
+  "splits": {
+    "train-extra": {
+      "layouts": 96000,
+      "sha256": "b352b5f2ce7324e1ca595f34379c35a1b4f8aa1a5bbb094d55ef21e03d7a3368"
+    }
+  }
+}
